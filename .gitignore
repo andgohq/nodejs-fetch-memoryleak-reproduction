@@ -1,0 +1,15 @@
+.DS_Store
+node_modules
+.cache
+build
+volume/cache
+
+CONVENTIONS.md
+CLAUDE.md
+.aider*
+debug/
+
+dist/
+
+5gb.img
+*.bin

@@ -1,0 +1,89 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "double",
+      "indentStyle": "space",
+      "indentWidth": 2,
+      "lineWidth": 150
+    },
+    "parser": {
+      "unsafeParameterDecoratorsEnabled": true
+    }
+  },
+  "formatter": {
+    "enabled": true,
+    "ignore": [
+      "node_modules",
+      "public",
+      "build",
+      ".vscode",
+      "packages/admin-app/.react-router/*",
+      "packages/recovery-app/.react-router/*",
+      "packages/recover-index/dist/*"
+    ],
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 150
+  },
+  "linter": {
+    "enabled": true,
+    "ignore": [
+      "node_modules",
+      "public",
+      "build",
+      "packages/admin-app/.react-router/*",
+      "packages/recovery-app/.react-router/*",
+      "packages/recover-index/dist/*"
+    ],
+    "rules": {
+      "recommended": true,
+      "complexity": {
+        "useSimplifiedLogicExpression": "warn",
+        "useOptionalChain": "warn"
+      },
+      "correctness": {
+        "noUnusedVariables": "error",
+        "useExhaustiveDependencies": "warn"
+      },
+      "style": {
+        "noShoutyConstants": "off",
+        "noUnusedTemplateLiteral": "error",
+        "noNegationElse": "warn",
+        "useBlockStatements": "error",
+        "useNamingConvention": {
+          "level": "error",
+          "options": {
+            "strictCase": true,
+            "requireAscii": true
+          }
+        }
+      },
+      "suspicious": {
+        "noExplicitAny": "error",
+        "noDoubleEquals": "error",
+        "useAwait": "error"
+      }
+    }
+  },
+  "organizeImports": {
+    "enabled": false
+  },
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "overrides": [
+    {
+      "include": ["prisma/seed.ts", "packages/admin-app/tailwind.config.ts", "packages/components-set/*", "packages/recovery-app/tailwind.config.ts"],
+      "linter": {
+        "rules": {
+          "style": {
+            "useNamingConvention": "off"
+          }
+        }
+      }
+    }
+  ]
+}
