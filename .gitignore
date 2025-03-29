@@ -13,3 +13,4 @@ dist/
 
 5gb.img
 *.bin
+vscode-profile*

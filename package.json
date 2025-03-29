@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsx --expose-gc src/main.ts",
-    "start": "node --expose-gc dist/main.js",
+    "start": "node --expose-gc --import=tsx src/main.ts",
     "build": "tsc",
     "gen-data": "./script/gen_data.sh",
     "mock-server": "tsx src/mock-server.ts"

@@ -1,6 +1,6 @@
 import { createReadStream } from "node:fs";
 import path from "node:path";
-export async function uploadFile(filePath: string, uploadUrl: string) {
+export async function uploadFile(filePath: string, uploadUrl: string, consumeResponse: boolean) {
   const { name } = path.parse(filePath);
 
   const formData = new FormData();
@@ -21,8 +21,21 @@ export async function uploadFile(filePath: string, uploadUrl: string) {
     });
 
     console.log("Status:", response.status);
-    // const text = await response.text();
-    // console.log("Response:", text);
+
+    if (consumeResponse && response.body) {
+      const reader = response.body.getReader();
+      try {
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) {
+            break;
+          }
+          console.log("Chunk:", value);
+        }
+      } finally {
+        reader.releaseLock();
+      }
+    }
   } catch (err) {
     console.error("Upload failed:", err);
   }

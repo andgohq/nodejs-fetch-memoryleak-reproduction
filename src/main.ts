@@ -10,7 +10,7 @@ async function main() {
   console.log("START");
   memoryCheck();
 
-  await uploadFile("./5gb.bin", "http://localhost:3001/upload");
+  await uploadFile("./5gb.bin", "http://localhost:3001/upload", true);
 
   if (globalThis.gc) {
     console.log("Garbage collection is executed");
